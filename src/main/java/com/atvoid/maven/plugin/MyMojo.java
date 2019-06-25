@@ -16,8 +16,13 @@ package com.atvoid.maven.plugin;
  * limitations under the License.
  */
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
 import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.MojoExecutionException;
+import org.apache.maven.plugins.annotations.LifecyclePhase;
+import org.apache.maven.plugins.annotations.Mojo;
+import org.apache.maven.plugins.annotations.Parameter;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -25,54 +30,42 @@ import java.io.IOException;
 
 /**
  * Goal which touches a timestamp file.
- *
- * @goal touch
- * 
- * @phase process-sources
  */
+@Mojo(name = "touch", defaultPhase = LifecyclePhase.PROCESS_SOURCES)
 public class MyMojo
-    extends AbstractMojo
-{
+        extends AbstractMojo {
+
     /**
-     * Location of the file.
-     * @parameter expression="${project.build.directory}"
-     * @required
-     */
+     * Location of the output directory.
+     **/
+    @Parameter( property = "project.build.directory")
     private File outputDirectory;
 
     public void execute()
-        throws MojoExecutionException
-    {
+            throws MojoExecutionException {
         File f = outputDirectory;
 
-        if ( !f.exists() )
-        {
+        System.out.println("make a touch file");
+
+        if (!f.exists()) {
             f.mkdirs();
         }
 
-        File touch = new File( f, "touch.txt" );
+        File touch = new File(f, "touch.txt");
 
         FileWriter w = null;
-        try
-        {
-            w = new FileWriter( touch );
+        try {
+            w = new FileWriter(touch);
 
-            w.write( "touch.txt" );
-        }
-        catch ( IOException e )
-        {
-            throw new MojoExecutionException( "Error creating file " + touch, e );
-        }
-        finally
-        {
-            if ( w != null )
-            {
-                try
-                {
+            w.write("touch.txt");
+        } catch (IOException e) {
+            // 未预期的异常
+            throw new MojoExecutionException("Error creating file " + touch, e);
+        } finally {
+            if (w != null) {
+                try {
                     w.close();
-                }
-                catch ( IOException e )
-                {
+                } catch (IOException e) {
                     // ignore
                 }
             }
