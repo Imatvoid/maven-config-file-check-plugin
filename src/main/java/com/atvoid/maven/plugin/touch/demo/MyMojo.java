@@ -1,4 +1,4 @@
-package com.atvoid.maven.plugin;
+package com.atvoid.maven.plugin.touch.demo;
 
 /*
  * Copyright 2001-2005 The Apache Software Foundation.
