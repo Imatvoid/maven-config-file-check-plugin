@@ -5,7 +5,7 @@
     <artifactId>check-maven-conf</artifactId>
     <packaging>maven-plugin</packaging>
     <version>1.0-SNAPSHOT</version>
-    <name>check-maven-conf Maven Mojo</name>
+    <name>check-maven-conf</name>
     <url>http://maven.apache.org</url>
 
 
@@ -46,6 +46,13 @@
             <version>1.17</version>
         </dependency>
 
+
+        <!--测试maven插件-->
+        <dependency>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-invoker-plugin</artifactId>
+            <version>3.2.0</version>
+        </dependency>
 
         <dependency>
             <groupId>junit</groupId>
@@ -92,6 +99,31 @@
                     <encoding>UTF-8</encoding>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-invoker-plugin</artifactId>
+                <version>3.2.0</version>
+
+                <configuration>
+                    <addTestClassPath>true</addTestClassPath>
+                    <projectsDirectory>src/its</projectsDirectory>
+                    <goals>
+                        <goal>install</goal>
+                    </goals>
+                    <postBuildHookScript>validate</postBuildHookScript>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>integration—test</id>
+                        <goals>
+                            <goal>install</goal>
+                            <goal>run</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
         </plugins>
     </build>
 </project>

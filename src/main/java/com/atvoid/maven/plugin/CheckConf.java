@@ -110,7 +110,7 @@ public class CheckConf extends AbstractMojo {
             throw new MojoExecutionException(
                     "The keys listed above don't exist in online-resources.Please fix it before maven build!..");
         } else {
-            getLog().info("==========================check ends==========================");
+            getLog().info("==========================check ends 检验通过==========================");
         }
 
     }
