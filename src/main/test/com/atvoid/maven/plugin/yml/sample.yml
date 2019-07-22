@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: eclp-ro
+  profiles:
+    active: 'profile.active'
+
+mybatis-plus:
+  mapperLocations: classpath:mybatis/mapper/*.xml
+  typeAliasesPackage: com.jd.eclp.ro.entity
+  typeHandlersPackage: com.jd.eclp.ro.config.mybatis.handler
+  configuration:
+    map-underscore-to-camel-case: true
+    cache-enabled: false
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl

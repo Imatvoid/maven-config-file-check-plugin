@@ -29,7 +29,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 /**
- * Goal which touches a timestamp file.
+ * 简单的插件demo
  */
 @Mojo(name = "touch", defaultPhase = LifecyclePhase.PROCESS_SOURCES)
 public class MyMojo
