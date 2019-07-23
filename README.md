@@ -37,3 +37,9 @@ maven配置文件校验插件
       offlinePath/xxxxx/a.properties 
       ```       
      将不能通过校验.
+     
+
+
+## 参考备忘
+
+https://blog.gmem.cc/maven-plugin-development     
