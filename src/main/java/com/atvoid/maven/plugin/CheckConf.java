@@ -26,7 +26,7 @@ import static com.atvoid.maven.plugin.contants.Constants.YML_SUFFIX;
  * 不同则置build faild.
  * 保持测试环境与生产环境配置项的一致性,方便再建立新的环境.
  */
-@Mojo(name = "check", defaultPhase = LifecyclePhase.COMPILE)
+@Mojo(name = "check", defaultPhase = LifecyclePhase.PROCESS_RESOURCES)
 public class CheckConf extends AbstractMojo {
 
     @Parameter(property = "fileType")

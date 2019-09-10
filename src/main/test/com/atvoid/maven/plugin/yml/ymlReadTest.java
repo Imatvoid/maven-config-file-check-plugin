@@ -29,7 +29,6 @@ public class ymlReadTest {
             HashSet<String> set = new HashSet<>();
             convertKeyMap(map, set, "");
 
-            System.out.println();
         } catch (Exception e) {
             e.printStackTrace();
         }
