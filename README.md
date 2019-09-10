@@ -132,6 +132,3 @@ maven配置文件校验插件
        
 ```
 
-## 参考
-
-https://blog.gmem.cc/maven-plugin-development     
